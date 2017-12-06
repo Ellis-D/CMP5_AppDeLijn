@@ -9,7 +9,7 @@ body {
   height: 80vh;
   box-sizing: border-box;
   margin-left: 10vw;
-  margin-top: 10vh;
+  margin-top: 8vh;
   font-weight: 900;
   font-size: 2.8vh;
 
@@ -218,16 +218,20 @@ input[name="lijn-account"] {
 */
 .vervoer {
   background-color: #F0F0F0;
-  width: 18%;
+/*  width: 18%; */
+  width: 10%;
   padding: 1%;
-  margin-left: 2.9%;
+/*  margin-left: 2.9%; */
+  margin-top: 4.5%;
+  margin-left: 4%;
+  margin-right: -3%;
 }
 
-.vervoerIcons {
+/*.vervoerIcons {
   position: absolute;
   top: 56.5%;
   left: 47.1%;
-}
+}*/
 
 .lopen {
   background-color: transparent;
