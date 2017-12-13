@@ -35,11 +35,35 @@ app.get("/lijnZoeken", function(req, res) {
     paginaTitel: "lijnZoeken"
   });
 });
-
 app.post("/lijnZoekenResultaat", function(req, res) {
-  res.render("lijnZoekenResultaat", {
-    paginaTitel: "lijnZoekenResultaat"
-  });
+
+  //     var reqBody = req.body;
+  //     for (var j = 0; j < reqBody.length; j++) {
+  //       var gemeenteId = reqBody.gemeenten[j].gemeenteNummer;
+  //       var gemeenteNaam = reqBody.gemeenten[j].naam;
+  //     }
+  //
+  //     console.log(gemeenteId);
+  //     console.log(gemeenteNaam);
+  //
+  //     request('https://www.delijn.be/rise-api-core/lijnen/gemeente/' + gemeenteId, function (error, response, body) {
+  //       var body = JSON.parse(body);
+  //       console.log(body);
+  //
+  //       if (gemeenteId === null) {
+  //         '<p> Er zijn geen lijnen gevonden in de gemeente ' + gemeenteNaam + '</p>';
+  //       } else {
+  //         '<h2> Verkooppunten in ' + gemeenteNaam + '</h2>'
+  //         for (var i = 0; i < body.length; i++) {
+  //             var gemeenteLijn = body[i].gemeenten[0].;
+  //             var nummerLijn = body[i].naam;
+  //         }
+  //       }
+  //       res.render("lijnZoekenResultaat", {
+  //         verkoop: '<h3>' + gemeente_verkooppunt + '</h3><p> Verkooppunt: ' + naam_verkooppunt + '</p><p> Adres: ' + adres_verkooppunt + '</p>',
+  //         paginaTitel: "lijnZoekenResultaat"
+  //       });
+  //     });
 });
 
 app.get("/registreren", function(req, res) {
@@ -53,7 +77,6 @@ app.get("/routePlannen", function(req, res) {
     paginaTitel: "routePlannen"
   });
 });
-
 app.post("/routePlannenResultaat", function(req, res) {
   res.render("routePlannenResultaat", {
     paginaTitel: "routePlannenResultaat"
@@ -71,7 +94,6 @@ app.get("/verkooppuntZoeken", function(req, res) {
     paginaTitel: "verkooppuntZoeken"
   });
 });
-
 app.post("/verkooppuntZoekenResultaat", function(req, res) {
   var stad = req.body.stad;
 
