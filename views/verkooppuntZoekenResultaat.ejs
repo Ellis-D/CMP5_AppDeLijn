@@ -1,0 +1,13 @@
+<% include header %>
+
+<h1>Zoek verkooppunten in uw gemeente van De Lijn</h1>
+
+<form method="post" action="/verkooppuntZoekenResultaat">
+  <input type="text" name="stad" placeholder="Stad">
+
+  <input type="submit" value="Zoeken">
+</form>
+
+<%- verkoop %>
+
+<% include footer %>

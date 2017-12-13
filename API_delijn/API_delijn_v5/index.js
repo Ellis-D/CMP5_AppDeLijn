@@ -25,8 +25,6 @@ app.post('/verkooppunten/result', function(req, res) {
     // console.log(req.body.stad);
     var stad = req.body.stad;
 
-    console.log(stad);
-
     request('https://www.delijn.be/rise-api-core/locations/verkooppunten/' + stad, function (error, response, body) {
       var body = JSON.parse(body);
       console.log(body);

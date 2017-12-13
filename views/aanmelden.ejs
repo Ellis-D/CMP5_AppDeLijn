@@ -1,14 +1,9 @@
 <% include header %>
 
-<form class="inlogscherm">
-        <input type="name" name="aanmelden"
-        placeholder="Gebruikersnaam"></input>
-
-					<input type="password" name="aanmelden"
-					placeholder="Wachtwoord"></input>
-
-		<a href="zoekscherm-account"><button class="zonderAccount" type="button">Login</button></a>
-
+<form class="inlogscherm" method="get" action="startscherm">
+        <input type="text" name="gebruikersnaam" placeholder="Gebruikersnaam" required>
+				<input type="password" name="wachtwoord" placeholder="Wachtwoord" required>
+		    <a href="startscherm"><input type="submit" value="Aanmelden" class="zonderAccount"></a>
 </form>
 
 <% include footer %>
