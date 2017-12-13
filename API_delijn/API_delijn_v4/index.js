@@ -58,21 +58,23 @@ app.get('/lijnen', function(req, res) {
 });
 
 app.post('/lijnen/result', function(req, res) {
-    // console.log(req.body.stad);
     var s_d = ' ';
-    request('https://www.delijn.be/rise-api-core/lijnen/gemeente/' + req.body.gemeenteNummer, function (error, response, body) {
+    request('https://www.delijn.be/rise-api-core/lijnen/gemeente/' + req.body.gemeenten[0].gemeenteNummer, function (error, response, body) {
+
+      // var gemeenteId = body.gemeenten[0].gemeenteNummer;
+
       var d = JSON.parse(body);
       console.log(d);
 
       if (d === null) {
         s_d += `
-        <p> Er zijn geen lijnen gevonden in de gemeente ${req.body.gemeenteNummer}</p>
+        <p> Er zijn geen lijnen gevonden in de gemeente ${req.body.gemeenten[0].gemeenteNummer}</p>
         `;
       }
       else {
 
         s_d += `
-          <h2> Lijnen in de gemeente ${req.body.gemeenteNummer}</h2>
+          <h2> Lijnen in de gemeente ${req.body.gemeenten[0].gemeenteNummer}</h2>
         `;
         for (var i = 0; i < d.length; i++) {
           s_d += `
