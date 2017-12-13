@@ -54,3 +54,4 @@ app.post('/result', function(req, res) {
 
 
 app.listen(8080);
+console.log('De app is geopend in poort 8080')
