@@ -1,4 +1,5 @@
 var express = require("express");
+var request = require('request');
 var path = require("path");
 var app = express();
 var bodyParser = require('body-parser');
@@ -72,8 +73,26 @@ app.get("/verkooppuntZoeken", function(req, res) {
 });
 
 app.post("/verkooppuntZoekenResultaat", function(req, res) {
-  res.render("verkooppuntZoekenResultaat", {
-    paginaTitel: "verkooppuntZoekenResultaat"
+  var stad = req.body.stad;
+
+  request('https://www.delijn.be/rise-api-core/locations/verkooppunten/' + stad, function (error, response, body) {
+    var body = JSON.parse(body);
+    console.log(body);
+
+    if (stad === null) {
+      '<p> Er zijn geen verkooppunten gevonden in de gemeente ' + stad + '</p>';
+    } else {
+      '<h2> Verkooppunten in ' + stad + '</h2>'
+      for (var i = 0; i < body.length; i++) {
+          var gemeenteVerkooppunt = body[i].gemeente;
+          var naamVerkooppunt = body[i].naam;
+          var adresVerkooppunt = body[i].adresString;
+      }
+    }
+    res.render("verkooppuntZoekenResultaat", {
+      verkoop: '<h3>' + gemeenteVerkooppunt + '</h3><p> Verkooppunt: ' + naamVerkooppunt + '</p><p> Adres: ' + adresVerkooppunt + '</p>',
+      paginaTitel: "verkooppuntZoekenResultaat"
+    });
   });
 });
 
