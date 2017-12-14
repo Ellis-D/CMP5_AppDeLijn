@@ -1,6 +1,6 @@
 function main() {
       var vandaag = new Date();
-      var nu = vandaag.getHours() + ":" + vandaag.getMinutes()
+      var nu = vandaag.getUTCHours() + ":" + vandaag.getUTCMinutes()
       document.getElementById('routeplannenDatum').valueAsDate = vandaag;
       document.getElementById('routeplannenTijd').value = nu;
 

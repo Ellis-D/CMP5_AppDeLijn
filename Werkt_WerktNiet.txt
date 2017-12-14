@@ -1,0 +1,50 @@
+aanmelden
+      Werkt maar is niet volgens de regels van de kunst. Dit werkt voor elke gebruikersnaam, en dus niet enkel voor bestaande gebruikers.
+
+      Goed genoeg, maar zou leuk zijn als het ook echt werkte.
+
+
+index
+      Werkt perfect!!!
+
+
+lijnZoeken
+      Werkt nog niet, is nog niet gelinkt aan de API.
+
+
+lijnZoekenResultaat
+      Werkt nog niet, is nog niet gelinkt aan de API.
+
+
+registreren
+      Werkt maar is niet volgens de regels van de kunst. Dit werkt voor elke gebruikersnaam, en dus niet enkel voor bestaande gebruikers.
+
+      Goed genoeg, maar zou leuk zijn als het ook echt werkte.
+
+
+routePlannen
+      Werkt nog niet, ben bezig met het koppelen aan de API's.
+
+      Probleem: Wanneer een vervoersmiddel niet aangeduid wordt, wordt 'undefined' teruggegeven in plaats van 'off' dit moet nog aangepast worden om te kunnen koppelen aan de API.
+
+
+routePlannenResultaat
+      Werkt nog niet, ben bezig met het koppelen aan de API's.
+
+      Probleem: Wanneer een vervoersmiddel niet aangeduid wordt, wordt 'undefined' teruggegeven in plaats van 'off' dit moet nog aangepast worden om te kunnen koppelen aan de API.
+
+
+startscherm
+      Werkt perfect!!!
+
+
+verkooppuntZoeken
+      Werkt bijna.
+
+      Probleem: Er wordt telkens maar 1 verkooppunt getoond, dit is vermoedelijk een probleem met de loop.
+
+
+verkooppuntZoekenResultaat
+      Werkt bijna.
+
+      Probleem: Er wordt telkens maar 1 verkooppunt getoond, dit is vermoedelijk een probleem met de loop.
