@@ -7,6 +7,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 200;
   font-size: 1em;
+  line-height: 2em;
   color: #202020;
   box-sizing: border-box;
   margin: 35px;
@@ -25,7 +26,8 @@ h1 {
   font-family: 'PT Sans', sans-serif;
   font-weight: 700;
   color: #202020;
-  text-align: center;
+  text-align: left;
+  margin: 4%;
 }
 
 h2 {
@@ -34,9 +36,19 @@ h2 {
   font-weight: 500;
   color: #202020;
   text-align: center;
+  margin: 4%;
 }
 
-p, a, input, select, label, option, button, ul, li {
+p {
+  font-size: 1em;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
+  color: #202020;
+  text-align: left;
+  margin: 4%;
+}
+
+a, input, select, label, option, button, ul, li {
   font-size: 1em;
   font-family: 'Roboto', sans-serif;
   font-weight: 200;
@@ -104,37 +116,12 @@ select {
   margin: 4% 4% 1% 4%;
 }
 
-#routesKnop {
+#routesKnop, #verkooppuntenKnop {
   width: 95%;
+  padding: 4.5%;
 }
 
-/* input[type="time"] {
-  font-size: 1em;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 1.5px solid #202B3D;
-  margin-left: 3vw;
-  margin-top: 2vh;
-  padding: 2% 0% 2% 2%;
-  background-color: transparent;
-  color: #696969;
-}
-
-select {
-  font-size: 1em;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 1.5px solid #202B3D;
-  margin-left: 3vw;
-  margin-top: 2vh;
-  padding: 2% 0% 2% 2%;
-  background-color: transparent;
-  color: #696969;
-}
-
-.lijnen {
+/* .lijnen {
   width: 30%;
   margin-top: 0px;
   display: flex;

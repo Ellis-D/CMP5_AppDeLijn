@@ -78,8 +78,18 @@ app.get("/routePlannen", function(req, res) {
   });
 });
 app.post("/routePlannenResultaat", function(req, res) {
+  var van = req.body.van;
+  var naar = req.body.naar;
+  var datum = req.body.datum;
+  var tijd = req.body.tijd;
+
+  var gevondenRoute = '<h2>Routes voor <br>' + van + ' - ' + naar + ' <br>op ' + datum + '</h2>';
+
+  console.log(gevondenRoute);
+
   res.render("routePlannenResultaat", {
-    paginaTitel: "routePlannenResultaat"
+    paginaTitel: "routePlannenResultaat",
+    gevondenRoute: gevondenRoute
   });
 });
 
