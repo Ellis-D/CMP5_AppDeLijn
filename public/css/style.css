@@ -120,40 +120,129 @@ select {
   height: 30px;
   position: relative;
   display: block;
-  margin: 5% 0% 7.5% 0%;
+  margin: 5% 0% 10% 0%;
+  padding-left: 10px;
+  text-align: center;
 }
 
-:root input.fotoCheckbox {
-  clip: rect(0,0,50,50);
-  border: black solid 1px;
-  border-radius: 0px;
-  width: 10%;
-  height: 10%;
-  margin: 0;
+input[type=checkbox] {
+  z-index: 200;
+  width: 35px;
+  height: 35px;
+  opacity: 0.01;
 }
+input[type=checkbox]:checked {
+  z-index: 200;
+  width: 35px;
+  height: 35px;
+  opacity: 0.01;
+}
+
+input[type=checkbox]:checked + label {
+  border-color: #202b3d;
+}
+
+.checkboxBus, .checkboxTram, .checkboxMetro, .checkboxTrein, .checkboxBelbus {
+	width: 25px;
+	margin: 0;
+	position: relative;
+}
+
+.checkboxBus label, .checkboxTram label, .checkboxMetro label, .checkboxTrein label, .checkboxBelbus label {
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	background-color: #f0f0f0;
+	border: 1.5px solid #f0f0f0;
+  border-radius: 10px;
+  background-position: center;
+  background-size: 75%;
+  background-repeat: no-repeat;
+  z-index: -10
+}
+.checkboxBus label, .checkboxBus input {
+  background-image: url("/img/bus.png");
+	position: absolute;
+  left: 0;
+	top: 0;
+}
+.checkboxTram label, .checkboxTram input {
+  background-image: url("/img/tram.png");
+	position: absolute;
+  left: 60px;
+	top: 0px;
+}
+.checkboxMetro label, .checkboxMetro input {
+  background-image: url("/img/tram.png");
+	position: absolute;
+  left: 120px;
+	top: 0px;
+}
+.checkboxTrein label, .checkboxTrein input {
+  background-image: url("/img/trein.png");
+	position: absolute;
+  left: 180px;
+	top: 0px;
+}
+.checkboxBelbus label, .checkboxBelbus input {
+  background-image: url("/img/bus.png");
+	position: absolute;
+  left: 240px;
+	top: 0px;
+}
+
+/* input.fotoCheckbox {
+  clip: rect(0,0,50,50);
+  border: black solid 10px;
+  border-radius: 0px;
+  z-index: 100;
+  position: absolute;
+}
+
+input.fotoCheckbox:nth-child(1) {
+  left: 10%;
+  border-color: yellow;
+}
+input.fotoCheckbox:nth-child(2) {
+  left: 15%;
+  border-color: orange;
+}
+input.fotoCheckbox:nth-child(3) {
+  left: 20%;
+  border-color: red;
+}
+input.fotoCheckbox:nth-child(4) {
+  left: 25%;
+  border-color: blue;
+}
+input.fotoCheckbox:nth-child(5) {
+  left: 30%;
+  border-color: green;
+}
+
 
 label img {
   width: 100%;
   height: 100%;
-  margin-top: 20%;
+  margin-top: 25%;
 }
 
-:root input.fotoCheckbox ~ label {
-  display:inline-block;
-  margin-left: -3.5%;
+input.fotoCheckbox ~ label {
+  display: inline-block;
   text-align: center;
   cursor: pointer;
-  width: 7.5%;
-  padding: 0% 1.5%;
+  width: 10%;
+  padding: 0% 2.5%;
+  line-height: 1.75em;
   background-color: #f0f0f0;
   border-radius: 10px;
 }
-:root input.fotoCheckbox:checked ~ label {
+input.fotoCheckbox:checked ~ label {
   background-color: #3c3c3c;
-}
+} */
 
-@media only screen and (max-width: 550px) {
-  :root input.fotoCheckbox ~ label {
+/* @media only screen and (max-width: 550px) {
+  input.fotoCheckbox ~ label {
     margin-left: -5%;
     width: 7%;
     padding: 0% 2%;
@@ -162,12 +251,12 @@ label img {
 }
 
 @media only screen and (max-width: 375px) {
-  :root input.fotoCheckbox ~ label {
+  input.fotoCheckbox ~ label {
     margin-left: -5.5%;
     width: 6.5%;
     line-height: 1.25em;
   }
-}
+} */
 
 #routesKnop, #lijnenKnop, #verkooppuntenKnop {
   width: 95%;

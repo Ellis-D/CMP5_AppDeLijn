@@ -10,16 +10,26 @@
 		    		<option value="2">Aankomen</option>
 	  </select>
 			<div class="vervoersMiddelen">
-						<input type="radio" name="byBus" value="Bus" class="fotoCheckbox">
-						<label for="bus" class="labels"><img src="/img/bus.png" alt="Bus"></label>
-						<input type="radio" name="byTram" value="Tram" class="fotoCheckbox">
-						<label for="tram" class="labels"><img src="/img/tram.png" alt="Tram"></label>
-						<input type="radio" name="byMetro" value="Metro" class="fotoCheckbox">
-						<label for="metro" class="labels"><img src="/img/tram.png" alt="Metro"></label>
-						<input type="radio" name="byTrain" value="Trein" class="fotoCheckbox">
-						<label for="trein" class="labels"><img src="/img/trein.png" alt="Trein"></label>
-						<input type="radio" name="byBelbus" value="Belbus" class="fotoCheckbox">
-						<label for="belbus" class="labels"><img src="/img/bus.png" alt="Belbus"></label>
+						<div class="checkboxBus">
+									<input type="checkbox" name="byBus" value="Bus" id="busInput" class="fotoCheckbox" checked>
+									<label for="busInput"></label>
+						</div>
+						<div class="checkboxTram">
+									<input type="checkbox" name="byTram" value="Tram" id="tramInput" class="fotoCheckbox" checked>
+									<label for="tramInput"></label>
+						</div>
+						<div class="checkboxMetro">
+									<input type="checkbox" name="byMetro" value="Metro" id="metroInput" class="fotoCheckbox" checked>
+									<label for="metroInput"></label>
+						</div>
+						<div class="checkboxTrein">
+									<input type="checkbox" name="byTrain" value="Trein" id="treinInput" class="fotoCheckbox" checked>
+									<label for="treinInput"></label>
+						</div>
+						<div class="checkboxBelbus">
+									<input type="checkbox" name="byBelbus" value="Belbus" id="belbusInput" class="fotoCheckbox">
+									<label for="belbusInput"></label>
+						</div>
 			</div>
 			<input type="submit" name="zoeken" value="Routes zoeken" id="routesKnop" class="knop">
 </form>

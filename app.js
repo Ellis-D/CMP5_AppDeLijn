@@ -83,6 +83,8 @@ app.post("/routePlannenResultaat", function(req, res) {
   var date = req.body.date;
   var time = req.body.time;
 
+  
+
   var gevondenRoute = '<h2>Routes voor <br>' + startPoint + ' - ' + endPoint + ' <br>op ' + date + '</h2>';
 
   console.log(gevondenRoute);
