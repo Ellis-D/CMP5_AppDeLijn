@@ -83,9 +83,13 @@ app.post("/routePlannenResultaat", function(req, res) {
   var date = req.body.date;
   var time = req.body.time;
 
-  
+  var byBus = req.body.byBus;
+  var byTram = req.body.byTram;
+  var byMetro = req.body.byMetro;
+  var byTrain = req.body.byTrain;
+  var byBelbus = req.body.byBelbus;
 
-  var gevondenRoute = '<h2>Routes voor <br>' + startPoint + ' - ' + endPoint + ' <br>op ' + date + '</h2>';
+  var gevondenRoute = '<h2>Routes voor <br>' + startPoint + ' - ' + endPoint + ' <br>op ' + date + '</h2><h2>Vervoersmiddelen:<h2><p>Bus: ' + byBus + '</p><p>Tram: ' + byTram + '</p><p>Metro: ' + byMetro + '</p><p>Trein: ' + byTrain + '</p><p>Belbus: ' + byBelbus + '</p>';
 
   console.log(gevondenRoute);
 

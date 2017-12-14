@@ -3,31 +3,31 @@
 <form method="post" action= "routePlannenResultaat">
 			<input type="text" name="startPoint" value="" placeholder="Van" class="invullen" required>
 			<input type="text" name="endPoint" value="" placeholder="Naar" class="invullen" required>
-			<input type="date" name="date" value="" required>
-			<input type="time" name="time" value="" required>
+			<input type="date" name="date" value="" id="routeplannenDatum" required>
+			<input type="time" name="time" value="" id="routeplannenTijd" required>
 			<select name="arrivalDeparture">
 		    		<option value="1">Vertrekken</option>
 		    		<option value="2">Aankomen</option>
 	  </select>
 			<div class="vervoersMiddelen">
 						<div class="checkboxBus">
-									<input type="checkbox" name="byBus" value="Bus" id="busInput" class="fotoCheckbox" checked>
+									<input type="checkbox" name="byBus" value="" id="busInput" class="fotoCheckbox" checked>
 									<label for="busInput"></label>
 						</div>
 						<div class="checkboxTram">
-									<input type="checkbox" name="byTram" value="Tram" id="tramInput" class="fotoCheckbox" checked>
+									<input type="checkbox" name="byTram" value="" id="tramInput" class="fotoCheckbox" checked>
 									<label for="tramInput"></label>
 						</div>
 						<div class="checkboxMetro">
-									<input type="checkbox" name="byMetro" value="Metro" id="metroInput" class="fotoCheckbox" checked>
+									<input type="checkbox" name="byMetro" value="" id="metroInput" class="fotoCheckbox" checked>
 									<label for="metroInput"></label>
 						</div>
 						<div class="checkboxTrein">
-									<input type="checkbox" name="byTrain" value="Trein" id="treinInput" class="fotoCheckbox" checked>
+									<input type="checkbox" name="byTrain" value="" id="treinInput" class="fotoCheckbox" checked>
 									<label for="treinInput"></label>
 						</div>
 						<div class="checkboxBelbus">
-									<input type="checkbox" name="byBelbus" value="Belbus" id="belbusInput" class="fotoCheckbox">
+									<input type="checkbox" name="byBelbus" value="" id="belbusInput" class="fotoCheckbox">
 									<label for="belbusInput"></label>
 						</div>
 			</div>

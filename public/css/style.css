@@ -49,11 +49,12 @@ p {
 }
 
 a, input, select, label, option, button, ul, li {
-  font-size: 1em;
+  font-size: 1.15em;
   font-family: 'Roboto', sans-serif;
   font-weight: 200;
   color: #202020;
   text-align: center;
+  text-decoration: none;
 }
 
 label {
