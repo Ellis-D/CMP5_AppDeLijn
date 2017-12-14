@@ -1,16 +1,15 @@
 <% include header %>
 
 <form method="post" action= "routePlannenResultaat">
-			<input type="text" name="#" placeholder="Van" class="invullen" required>
-			<input type="text" name="#" placeholder="Naar" class="invullen" required>
-			<input type="text" name="#" placeholder="Lijn" class="invullen">
-			<input type="date" name= "#">
-			<input type="time" name= "#">
-			<select name="wanneer">
-		        <option value="Vertrek">Vertrekken</option>
-		        <option value="Aankomst">Aankomen</option>
+			<input type="text" name="van" value="" placeholder="Van" class="invullen" required>
+			<input type="text" name="naar" value="" placeholder="Naar" class="invullen" required>
+			<input type="date" name="datum" value="" required>
+			<input type="time" name="tijd" value="" required>
+			<select name="arrivalDeparture">
+		        <option value="1">Vertrekken</option>
+		        <option value="2">Aankomen</option>
 	    </select>
-			<input type= "submit" name= "submit" value="Zoeken" class="knop">
+			<input type="submit" name="zoeken" value="Routes zoeken" id="routesKnop" class="knop">
 </form>
 
 <% include footer %>
