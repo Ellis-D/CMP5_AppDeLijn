@@ -2,13 +2,9 @@
 
 <form method="post" action= "routePlannenResultaat">
 
-			<input type="text" id="text" />
-			<input type="button" id="search" value="search" />
-			<div id="map-holder"></div>
-			<div id="debug"></div>
 
-			<!-- <input type="text" name="startPoint" value="" id="startPoint" placeholder="Van" class="invullen" required>
-			<input type="text" name="endPoint" value="" id="endPoint" placeholder="Naar" class="invullen" required>
+			<input type="text" name="startPoint" value="" id="startPoint" placeholder="Van" class="invullen" required>
+			<!-- <input type="text" name="endPoint" value="" id="endPoint" placeholder="Naar" class="invullen" required>
 			<input type="date" name="date" value="" id="routeplannenDatum" required>
 	Automatische uurinvulling werkt niet van xx:00 tot xx:09. Fout in de uurnotatie. Soms wordt ook verkeerde uur weergegeven.
 			<input type="time" name="time" value="" id="routeplannenTijd" required>
@@ -37,8 +33,10 @@
 									<input type="checkbox" name="byBelbus" value="on" id="belbusInput" class="fotoCheckbox" checked>
 									<label for="belbusInput"></label>
 						</div>
-			</div>
-			<input type="submit" name="zoeken" value="Routes zoeken" id="routesKnop" class="knop"> -->
+			</div> -->
+			<input type="button" name="zoeken" value="Routes zoeken" id="routesKnop" class="knop">
+			<div id="debug"></div>
+
 </form>
 
 <% include footer %>
