@@ -18,13 +18,11 @@ window.onload = function() {
 
   }
   if (window.location.href === "http://localhost:5000/halteZoeken") {
-        function coordinatenAutomatischBepalen() {
-              navigator.geolocation.getCurrentPosition(function(location) {
-                   var lat = location.coords.latitude;
-                   var long = location.coords.longitude;
-                   console.log([lat, long]);
-              });
-        }
+        navigator.geolocation.getCurrentPosition(function(location) {
+             var lat = location.coords.latitude;
+             var long = location.coords.longitude;
+             console.log([lat, long]);
+        });
   }
   if (window.location.href === "http://localhost:5000/index") {
 

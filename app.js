@@ -79,54 +79,53 @@ app.get("/routePlannen", function(req, res) {
   res.render("routePlannen");
 });
 app.post("/routePlannenResultaat", function(req, res) {
-  var startPoint = req.body.startPoint;
-  var endPoint = req.body.endPoint;
+      var startPoint = req.body.startPoint;
+      var endPoint = req.body.endPoint;
 
-  var startX;
-  var startY;
-  var endX;
-  var endY;
+      var startX;
+      var startY;
+      var endX;
+      var endY;
 
-  var date = req.body.date;
-  var time = req.body.time;
+      var date = req.body.date.split("-").reverse().join("-");
+      var time = req.body.time;
 
-  var arrivalDeparture = req.body.arrivalDeparture;
+      console.log(date);
 
-  var byBus = req.body.byBus;
-  var byTram = req.body.byTram;
-  var byMetro = req.body.byMetro;
-  var byTrain = req.body.byTrain;
-  var byBelbus = req.body.byBelbus;
+      var arrivalDeparture = req.body.arrivalDeparture;
 
-  var gevondenRoute = '<h2>Routes voor <br>' + startPoint + ' - ' + endPoint + ' <br>op ' + date + '</h2><h2>Vervoersmiddelen:<h2><p>Bus: ' + byBus + '</p><p>Tram: ' + byTram + '</p><p>Metro: ' + byMetro + '</p><p>Trein: ' + byTrain + '</p><p>Belbus: ' + byBelbus + '</p>';
+      var byBus = req.body.byBus;
+      var byTram = req.body.byTram;
+      var byMetro = req.body.byMetro;
+      var byTrain = req.body.byTrain;
+      var byBelbus = req.body.byBelbus;
 
-  // var gevondenRoute = '<p>startPoint: ' + startPoint + '</p><p>endPoint: ' + endPoint + '</p><p>startX: ' + startX + '</p><p>startY: ' + startY + '</p><p>endX: ' + endX + '</p><p>endY: ' + endY + '</p><p>Date: ' + date + '</p><p>time: ' + time + '</p><p>byBus: ' + byBus + '</p><p>byTram: ' + byTram + '</p><p>byMetro: ' + byMetro + '</p><p>byTrain: ' + byTrain + '</p><p>Belbus: ' + byBelbus + '</p>';
-
-  console.log(startPoint, endPoint, startX, startY, endX, endY, date, time, arrivalDeparture, byBus, byTram, byMetro, byTrain, byBelbus);
-
-  // request('https://www.delijn.be/rise-api-core/reisadvies/routes/' + startPoint + '/' + endPoint + '/' + startX + '/' + startY + '/' + endX + '/' + endY + '/' + date + '/' + time + '/' + arrivalDeparture + '/' + byBus + '/' + byTram + '/' + byMetro + '/' + byTrain + '/' + byBelbus + '/nl' , function (error, response, body) {
-  //   var body = JSON.parse(body);
-  //   console.log(body);
-  //
-  //   if (stad === null) {
-  //     '<p> Er zijn geen verkooppunten gevonden in de gemeente ' + stad + '</p>';
-  //   } else {
-  //     '<h2> Verkooppunten in ' + stad + '</h2>'
-  //     for (var i = 0; i < body.length; i++) {
-  //         var gemeenteVerkooppunt = body[i].gemeente;
-  //         var naamVerkooppunt = body[i].naam;
-  //         var adresVerkooppunt = body[i].adresString;
-  //     }
-  //   }
-  //   res.render("verkooppuntZoekenResultaat", {
-  //     verkoop: '<h3>' + gemeenteVerkooppunt + '</h3><p> Verkooppunt: ' + naamVerkooppunt + '</p><p> Adres: ' + adresVerkooppunt + '</p>'
-  //   });
-  // });
+      // var gevondenRoute = '<h2>Routes voor <br>' + startPoint + ' - ' + endPoint + ' <br>op ' + date + '</h2><h2>Vervoersmiddelen:<h2><p>Bus: ' + byBus + '</p><p>Tram: ' + byTram + '</p><p>Metro: ' + byMetro + '</p><p>Trein: ' + byTrain + '</p><p>Belbus: ' + byBelbus + '</p>';
 
 
-  res.render("routePlannenResultaat", {
-    content: gevondenRoute
-  });
+      console.log(startPoint, endPoint, startX, startY, endX, endY, date, time, arrivalDeparture, byBus, byTram, byMetro, byTrain, byBelbus);
+
+      request('https://www.delijn.be/rise-api-core/reisadvies/routes/Sint-Niklaas/Elversele,Temse/134103/206073/133774/200500/' + '/' + date + '/' + time + '/' + arrivalDeparture + '/' + byBus + '/' + byTram + '/' + byMetro + '/' + byTrain + '/' + byBelbus + '/nl' , function (error, response, body) {
+            var body = JSON.parse(body);
+            console.log(body);
+
+            for (var i = 0; i < body.length; i++) {
+                        var reisTijd = body[i].reiswegen[i].duration;
+                        var vertrekTijd = body[i].reiswegen[i].startTime;
+                        var aankomstTijd = body[i].reiswegen[i].endTime;
+            }
+
+            // var gevondenRoute = '<h2>Routes voor <br>' + startPoint + ' - ' + endPoint + ' <br>op ' + date + '</h2><p>Vertrekuur: ' + vertrekTijd + '</p><p>Aankomstuur: ' + aankomstTijd + '</p><p>Reistijd: ' + reisTijd + '</p>';
+
+            var gevondenRoute = body;
+
+            console.log(gevondenRoute);
+
+            res.render("routePlannenResultaat", {
+              content: gevondenRoute
+            });
+
+      });
 });
 
 app.get("/startscherm", function(req, res) {
