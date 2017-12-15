@@ -24,38 +24,51 @@ app.get("/", function(req, res) {
   res.render("index");
 });
 
-app.get("/lijnZoeken", function(req, res) {
-  res.render("lijnZoeken");
+app.get("/halteZoeken", function(req, res) {
+  res.render("halteZoeken");
 });
-app.post("/lijnZoekenResultaat", function(req, res) {
+app.post("/halteZoekenResultaat", function(req, res) {
+      var long = req.query.long;
+      var lat = req.query.lat;
+      var coorX = 0;
+      var coorY = 0;
+      var radius = 500;
 
-  //     var reqBody = req.body;
-  //     for (var j = 0; j < reqBody.length; j++) {
-  //       var gemeenteId = reqBody.gemeenten[j].gemeenteNummer;
-  //       var gemeenteNaam = reqBody.gemeenten[j].naam;
-  //     }
-  //
-  //     console.log(gemeenteId);
-  //     console.log(gemeenteNaam);
-  //
-  //     request('https://www.delijn.be/rise-api-core/lijnen/gemeente/' + gemeenteId, function (error, response, body) {
-  //       var body = JSON.parse(body);
-  //       console.log(body);
-  //
-  //       if (gemeenteId === null) {
-  //         '<p> Er zijn geen lijnen gevonden in de gemeente ' + gemeenteNaam + '</p>';
-  //       } else {
-  //         '<h2> Verkooppunten in ' + gemeenteNaam + '</h2>'
-  //         for (var i = 0; i < body.length; i++) {
-  //             var gemeenteLijn = body[i].gemeenten[0].;
-  //             var nummerLijn = body[i].naam;
-  //         }
-  //       }
-  //       res.render("lijnZoekenResultaat", {
-  //         verkoop: '<h3>' + gemeente_verkooppunt + '</h3><p> Verkooppunt: ' + naam_verkooppunt + '</p><p> Adres: ' + adres_verkooppunt + '</p>',
-  //         paginaTitel: "lijnZoekenResultaat"
-  //       });
-  //     });
+      request('https://www.delijn.be/rise-api-core/coordinaten/convert/' + lat + '/' + long, function (error, response, body) {
+           var body = JSON.parse(body);
+           console.log(body);
+
+           coorX = body.xCoordinaat;
+           coorY = body.yCoordinaat;
+
+           console.log("x:"+coorX+"y:"+coorY);
+
+
+           request('https://www.delijn.be/rise-api-core/haltes/indebuurt/' + coorX + '/' + coorY + '/' + radius, function (error, response, body) {
+
+
+                // if (coorX === null) {
+                //   '<p> Er zijn geen haltes gevonden in de buurt</p>';
+                // } else {
+                //   '<h2> Haltes in de buurt:</h2>'
+                //   for (var i = 0; i < body.length; i++) {
+                //       var halteNaam = body[i].omschrijvingLang;
+                //       var halteNummer = body[i].halteNummer;
+                //       var afstand = body[i].afstand;
+                //       var lijnen = body[i].lijnen[lijnNummer];
+                //   }
+                // }
+                //
+                // var omgeving = '<h2>Gevonden haltes:</h2><p>' + halteNaam + ' - ' + '</p><p>Afstand tot halte: ' + afstand + 'km<br>Doorkomst lijnen' + lijnen.toString() + '</p>';
+
+                omgeving = body;
+
+                res.render('halteZoekenResultaat', {
+                     content: omgeving
+                });
+           });
+      });
+
 });
 
 app.get("/registreren", function(req, res) {
@@ -69,13 +82,15 @@ app.post("/routePlannenResultaat", function(req, res) {
   var startPoint = req.body.startPoint;
   var endPoint = req.body.endPoint;
 
-  // var startX = ;
-  // var startY = ;
-  // var endX = ;
-  // var endY = ;
+  var startX;
+  var startY;
+  var endX;
+  var endY;
 
   var date = req.body.date;
   var time = req.body.time;
+
+  var arrivalDeparture = req.body.arrivalDeparture;
 
   var byBus = req.body.byBus;
   var byTram = req.body.byTram;
@@ -87,7 +102,7 @@ app.post("/routePlannenResultaat", function(req, res) {
 
   // var gevondenRoute = '<p>startPoint: ' + startPoint + '</p><p>endPoint: ' + endPoint + '</p><p>startX: ' + startX + '</p><p>startY: ' + startY + '</p><p>endX: ' + endX + '</p><p>endY: ' + endY + '</p><p>Date: ' + date + '</p><p>time: ' + time + '</p><p>byBus: ' + byBus + '</p><p>byTram: ' + byTram + '</p><p>byMetro: ' + byMetro + '</p><p>byTrain: ' + byTrain + '</p><p>Belbus: ' + byBelbus + '</p>';
 
-  console.log(gevondenRoute);
+  console.log(startPoint, endPoint, startX, startY, endX, endY, date, time, arrivalDeparture, byBus, byTram, byMetro, byTrain, byBelbus);
 
   // request('https://www.delijn.be/rise-api-core/reisadvies/routes/' + startPoint + '/' + endPoint + '/' + startX + '/' + startY + '/' + endX + '/' + endY + '/' + date + '/' + time + '/' + arrivalDeparture + '/' + byBus + '/' + byTram + '/' + byMetro + '/' + byTrain + '/' + byBelbus + '/nl' , function (error, response, body) {
   //   var body = JSON.parse(body);
@@ -110,7 +125,7 @@ app.post("/routePlannenResultaat", function(req, res) {
 
 
   res.render("routePlannenResultaat", {
-    gevondenRoute: gevondenRoute
+    content: gevondenRoute
   });
 });
 
@@ -139,7 +154,7 @@ app.post("/verkooppuntZoekenResultaat", function(req, res) {
       }
     }
     res.render("verkooppuntZoekenResultaat", {
-      verkoop: '<h3>' + gemeenteVerkooppunt + '</h3><p> Verkooppunt: ' + naamVerkooppunt + '</p><p> Adres: ' + adresVerkooppunt + '</p>'
+      content: '<h3>' + gemeenteVerkooppunt + '</h3><p> Verkooppunt: ' + naamVerkooppunt + '</p><p> Adres: ' + adresVerkooppunt + '</p>'
     });
   });
 });
