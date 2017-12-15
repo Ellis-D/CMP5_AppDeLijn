@@ -8,12 +8,12 @@ index
       Werkt perfect!!!
 
 
-lijnZoeken
-      Werkt nog niet, is nog niet gelinkt aan de API.
+halteZoeken
+      Werkt nog niet, is nog niet gelinkt aan de API. Is momenteel gelinkt aan de locatie van de computer, maar echt zoeken werkt nog niet.
 
 
-lijnZoekenResultaat
-      Werkt nog niet, is nog niet gelinkt aan de API.
+halteZoekenResultaat
+      Werkt nog niet, is nog niet gelinkt aan de API. Is momenteel gelinkt aan de locatie van de computer, maar echt zoeken werkt nog niet.
 
 
 registreren
@@ -23,7 +23,9 @@ registreren
 
 
 routePlannen
-      Werkt nog niet, ben bezig met het koppelen aan de API's.
+      Werkt in de console maar nog niet in de browser, ben bezig met het koppelen aan de API's.
+
+      Probleem: Werkt momenteel enkel voor vaste locaties. Want ik kan nog niet linken aan X en Y coordinaten.
 
       Probleem: Wanneer een vervoersmiddel niet aangeduid wordt, wordt 'undefined' teruggegeven in plaats van 'off' dit moet nog aangepast worden om te kunnen koppelen aan de API.
 
@@ -31,11 +33,21 @@ routePlannen
 
       Probleem: teruggeven 'on' en 'off' gebeurt niet consequent. Soms wordt 'off' teruggegeven wanneer het vervoersmiddel wel aangevinkt is. Anderzijds wordt er 'undefined' teruggegeven als het niet aangevinkt is.
 
+      Probleem: In de console (git shell) werkt de API wel, maar in de browser wordt [object, Object] teruggegeven.
+
 
 routePlannenResultaat
-      Werkt nog niet, ben bezig met het koppelen aan de API's.
+      Werkt in de console maar nog niet in de browser, ben bezig met het koppelen aan de API's.
+
+      Probleem: Werkt momenteel enkel voor vaste locaties. Want ik kan nog niet linken aan X en Y coordinaten.
 
       Probleem: Wanneer een vervoersmiddel niet aangeduid wordt, wordt 'undefined' teruggegeven in plaats van 'off' dit moet nog aangepast worden om te kunnen koppelen aan de API.
+
+      Probleem: Automatische uurinvulling werkt niet (zie file voor extra info).
+
+      Probleem: teruggeven 'on' en 'off' gebeurt niet consequent. Soms wordt 'off' teruggegeven wanneer het vervoersmiddel wel aangevinkt is. Anderzijds wordt er 'undefined' teruggegeven als het niet aangevinkt is.
+
+      Probleem: In de console (git shell) werkt de API wel, maar in de browser wordt [object, Object] teruggegeven.
 
 
 startscherm
