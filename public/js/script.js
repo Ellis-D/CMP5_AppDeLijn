@@ -1,4 +1,21 @@
 function main() {
+
+      var geocoder = new google.maps.Geocoder();
+      var adres = jQuery('#startPoint').val();
+      var nieuweString = jQuery('#startXstartY');
+
+      geocoder.geocode( { 'address': adres}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                  var latitude = results[0].geometry.location.lat();
+                  var longitude = results[0].geometry.location.lng();
+                  nieuweString.val(latitude+', '+longitude);
+            }
+            console.log(nieuweString.val(latitude+', '+longitude));
+
+      });
+
+
+
       var vandaag = new Date();
       var nu = vandaag.getUTCHours() + ":" + vandaag.getUTCMinutes()
       document.getElementById('routeplannenDatum').valueAsDate = vandaag;
@@ -8,40 +25,40 @@ function main() {
       var byBus = document.getElementById('busInput');
       if (byBus.checked === true) {
             byBus.value = 'on'
-      } else if (byBus.checked === false) {
-            byBus.value = 'off'
+      } else {
+            byBus.value = 'of'
       }
 
 
       var byTram = document.getElementById('tramInput');
       if (byTram.checked === true) {
             byTram.value = 'on'
-      } else if (byTram.checked === false) {
-            byTram.value = 'off'
+      } else {
+            byTram.value = 'of'
       }
 
 
       var byMetro = document.getElementById('metroInput');
       if (byMetro.checked === true) {
             byMetro.value = 'on'
-      } else if (byMetro.checked === false) {
-            byMetro.value = 'off'
+      } else {
+            byMetro.value = 'of'
       }
 
 
       var byTrain = document.getElementById('treinInput');
       if (byTrain.checked === true) {
             byTrain.value = 'on'
-      } else if (byTrain.checked === false) {
-            byTrain.value = 'off'
+      } else {
+            byTrain.value = 'of'
       }
 
 
       var byBelbus = document.getElementById('belbusInput');
       if (byBelbus.checked === true) {
             byBelbus.value = 'on'
-      } else if (byBelbus.checked === false) {
-            byBelbus.value = 'off'
+      } else {
+            byBelbus.value = 'of'
       }
 }
 

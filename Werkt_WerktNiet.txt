@@ -27,6 +27,10 @@ routePlannen
 
       Probleem: Wanneer een vervoersmiddel niet aangeduid wordt, wordt 'undefined' teruggegeven in plaats van 'off' dit moet nog aangepast worden om te kunnen koppelen aan de API.
 
+      Probleem: Automatische uurinvulling werkt niet (zie file voor extra info).
+
+      Probleem: teruggeven 'on' en 'off' gebeurt niet consequent. Soms wordt 'off' teruggegeven wanneer het vervoersmiddel wel aangevinkt is. Anderzijds wordt er 'undefined' teruggegeven als het niet aangevinkt is.
+
 
 routePlannenResultaat
       Werkt nog niet, ben bezig met het koppelen aan de API's.

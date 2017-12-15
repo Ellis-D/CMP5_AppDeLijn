@@ -1,8 +1,12 @@
 {
-  "name": "Applicatie De Lijn CMP5",
+  "name": "DeLijn",
   "version": "1.0.0",
   "description": "Routeplanner",
   "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Ellis-D/CMP5_AppDeLijn.git"
+  },
   "directories": {
     "test": "test"
   },
@@ -26,7 +30,7 @@
     "Eva Lasters"
   ],
   "license": "ISC",
-  "homepage": "localhost:5000/",
+  "homepage": "",
   "dependencies": {
     "date-time": "^2.1.0",
     "ejs": "^2.5.6",
