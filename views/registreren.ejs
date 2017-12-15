@@ -1,17 +1,10 @@
 <% include header %>
 
-<form class="inlogscherm">
-        <input type="name" name="aanmelden"
-        placeholder="Gebruikersnaam"></input>
-
-					<input type="password" name="aanmelden"
-					placeholder="Wachtwoord"></input>
-
-					<input type="email" name="aanmelden"
-					placeholder="E-mail"></input>
-
-					<input type= "submit" name= "login" value="Registreer"></input>
+<form method="get" action="startscherm">
+      <input type="text" value="" name="gebruikersnaam" placeholder="Gebruikersnaam" class="invullen" required>
+      <input type="email" value="" name="email" placeholder="E-mail" class="invullen" required>
+			<input type="password" value="" name="wachtwoord" placeholder="Wachtwoord" class="invullen" required>
+	    <a href="startscherm"><input type="submit" value="Registreren" class="knop"></a>
 </form>
-
 
 <% include footer %>
