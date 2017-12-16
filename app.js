@@ -105,21 +105,24 @@ app.post("/routePlannenResultaat", function(req, res) {
 
       console.log(startPoint, endPoint, startX, startY, endX, endY, date, time, arrivalDeparture, byBus, byTram, byMetro, byTrain, byBelbus);
 
-      request('https://www.delijn.be/rise-api-core/reisadvies/routes/Sint-Niklaas/Elversele,Temse/134103/206073/133774/200500/' + '/' + date + '/' + time + '/' + arrivalDeparture + '/' + byBus + '/' + byTram + '/' + byMetro + '/' + byTrain + '/' + byBelbus + '/nl' , function (error, response, body) {
+      request('https://www.delijn.be/rise-api-core/reisadvies/routes/Sint-Niklaas/Elversele,Temse/134027/206073/133774/200500/' + '/' + date + '/' + time + '/' + arrivalDeparture + '/' + byBus + '/' + byTram + '/' + byMetro + '/' + byTrain + '/' + byBelbus + '/nl' , function (error, response, body) {
             var body = JSON.parse(body);
             console.log(body);
 
             for (var i = 0; i < body.length; i++) {
-                        var reisTijd = body[i].reiswegen[i].duration;
-                        var vertrekTijd = body[i].reiswegen[i].startTime;
-                        var aankomstTijd = body[i].reiswegen[i].endTime;
+                  var body = body[i];
+                  for (var j =0; j < reiswegen.length; j++) {
+                        var reisTijd = body.reiswegen[i].duration;
+                        var vertrekTijd = body.reiswegen[i].startTime;
+                        var aankomstTijd = body.reiswegen[i].endTime;
+                  };
             }
 
-            // var gevondenRoute = '<h2>Routes voor <br>' + startPoint + ' - ' + endPoint + ' <br>op ' + date + '</h2><p>Vertrekuur: ' + vertrekTijd + '</p><p>Aankomstuur: ' + aankomstTijd + '</p><p>Reistijd: ' + reisTijd + '</p>';
+            var gevondenRoute = '<h2>Routes voor <br>' + startPoint + ' - ' + endPoint + ' <br>op ' + date + '</h2><p>Vertrekuur: ' + vertrekTijd + '</p><p>Aankomstuur: ' + aankomstTijd + '</p><p>Reistijd: ' + reisTijd + '</p>';
 
-            var gevondenRoute = body;
+            // var gevondenRoute = body;
 
-            console.log(gevondenRoute);
+            console.log(reisTijd, vertrekTijd, aankomstTijd);
 
             res.render("routePlannenResultaat", {
               content: gevondenRoute
