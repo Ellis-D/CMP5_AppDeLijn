@@ -10,7 +10,14 @@
 // }
 
 
+
 window.onload = function() {
+  var terugGaan = document.getElementById('terugGaan');
+  terugGaan.onclick = function(){
+       console.log("Ga terug");
+       window.history.back();
+  }
+
   if (window.location.href === "http://localhost:5000/404") {
 
   }
@@ -20,8 +27,10 @@ window.onload = function() {
   if (window.location.href === "http://localhost:5000/halteZoeken") {
         navigator.geolocation.getCurrentPosition(function(location) {
              var lat = location.coords.latitude;
-             var long = location.coords.longitude;
-             console.log([lat, long]);
+             var lng = location.coords.longitude;
+             console.log([lat, lng]);
+             document.getElementById('lat').value = lat;
+             document.getElementById('lng').value = lng;
         });
   }
   if (window.location.href === "http://localhost:5000/index") {

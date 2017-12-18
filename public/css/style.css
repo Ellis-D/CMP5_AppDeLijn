@@ -21,6 +21,12 @@ header {
   width: 75px;
 }
 
+#terugGaan, #terugGaan img {
+  width: 50px;
+  float: right;
+  margin-top: 5px;
+}
+
 h1 {
   font-size: 1.5em;
   font-family: 'PT Sans', sans-serif;
@@ -263,6 +269,10 @@ input.fotoCheckbox:checked ~ label {
   width: 95%;
   padding: 4.5%;
 }
+
+/* input#lat, input#lng {
+  visibility: hidden;
+} */
 
 /* .lijnen {
   width: 30%;
