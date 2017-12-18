@@ -41,86 +41,98 @@ window.onload = function() {
         }
 
 
-        // function locatieStartPointOpvragen() {
-        //     	// Locatie startPoint opvragen
-        //     	document.getElementById("routesKnop").onclick = function() {
-        //     		var startPoint = document.getElementById("startPoint").value;
-        //     		console.log("Gevonden locaties voor " + startPoint);
-        //     		addressToLocation(startPoint, searchLocations);
-        //     	}
-        //       function searchLocations(locations) {
-        //       	if(locations && locations.length) {
-        //       		console.log("Aantal locaties: " + locations.length);
-        //       		var numOfLocations = locations.length;
-        //       		for(var i=0; i<numOfLocations; i++) {
-        //       			coordinatenTeruggeven("<p>" + locations[i].text + "<br>" + locations[i].location.toString() + "</p>");
-        //       		}
-        //       	} else {
-        //       		coordinatenTeruggeven("Geen locatie gevonden");
-        //       	}
-        //       }
-        //       function addressToLocation(startPoint, callback) {
-        //       	var geocoder = new google.maps.Geocoder();
-        //       	geocoder.geocode(
-        //       		{ address: startPoint},
-        //       		function(results, status) {
-        //       			var resultLocations = [];
-        //       			if(status == google.maps.GeocoderStatus.OK) {
-        //       				if(results) {
-        //       					var numOfResults = results.length;
-        //       					for(var i=0; i<numOfResults; i++) {
-        //       						var result = results[i];
-        //       						resultLocations.push(
-        //       							{
-        //       								text:result.formatted_address,
-        //       								addressStr:result.formatted_address,
-        //       								location:result.geometry.location
-        //       							}
-        //       						);
-        //       					};
-        //       				}
-        //       			} else if(status == google.maps.GeocoderStatus.ZERO_RESULTS) {
-        //       				console.log('Adres niet gevonden');
-        //       			}
-        //       			var lat = resultLocations[0].location.lat.toString();
-        //       			console.log(lat);
-        //
-        //       			if (resultLocations.length > 1) {
-        //       				coordinatenTeruggeven("<p>Specifieer je zoekwaarde</p>");
-        //       			} else if (resultLocations.length === 1) {
-        //               callback(resultLocations);
-        //       			} else {
-        //       				callback(null);
-        //       			}
-        //       		}
-        //       	);
-        //       }
-        //       function coordinatenTeruggeven(str) {
-        //       	var coordinatenLatLng = document.getElementById("coordinatenLatLng");
-        //       	coordinatenLatLng.innerHTML = "";
-        //       	coordinatenLatLng.innerHTML = coordinatenLatLng.innerHTML + "<br />" + str;
-        //       }
-        // }
+        function locatieStartPointOpvragen() {
+            	// Locatie startPoint opvragen
+            	document.getElementById("routesKnop").onclick = function() {
+            		var startPoint = document.getElementById("startPoint").value;
+            		console.log("Gevonden locaties voor " + startPoint);
+            		addressToLocationStartPoint(startPoint, searchLocationsStartPoint);
+            	}
+              function searchLocationsStartPoint(locations) {
+              	if(locations && locations.length) {
+              		console.log("Aantal locaties: " + locations.length);
+              		var numOfLocations = locations.length;
+              		for(var i=0; i<numOfLocations; i++) {
+              			coordinatenTeruggevenStartPoint("<p>" + locations[i].text + "<br>" + locations[i].location.lat() + ", " + locations[i].location.lng() + "</p>");
+              		}
+              	} else {
+              		coordinatenTeruggevenStartPoint("Geen locatie gevonden");
+              	}
+              }
+              function addressToLocationStartPoint(startPoint, callback) {
+              	var geocoder = new google.maps.Geocoder();
+              	geocoder.geocode(
+              		{ address: startPoint},
+              		function(results, status) {
+              			var resultLocations = [];
+              			if(status == google.maps.GeocoderStatus.OK) {
+              				if(results) {
+              					var numOfResults = results.length;
+              					for(var i=0; i<numOfResults; i++) {
+              						var result = results[i];
+              						resultLocations.push(
+              							{
+              								text:result.formatted_address,
+              								addressStr:result.formatted_address,
+              								location:result.geometry.location
+              							}
+              						);
+              					};
+              				}
+              			} else if(status == google.maps.GeocoderStatus.ZERO_RESULTS) {
+              				console.log('Adres niet gevonden');
+              			}
+
+                    var startLat = result.geometry.location.lat();
+                    var startLng = result.geometry.location.lng();
+                    var teruggevenLatLng = [startLat, startLng];
+
+                    document.getElementById('startLat').innerHTML = startLat;
+                    document.getElementById('startLng').innerHTML = startLng;
+
+                    console.log(startLat);
+                    console.log(startLng);
+
+                    // var startPoint = document.getElementById('startPoint').value = [startPoint, startLat, startLng];
+
+
+              			if (resultLocations.length > 1) {
+              				coordinatenTeruggevenStartPoint("<p>Specifieer je zoekwaarde</p>");
+              			} else if (resultLocations.length === 1) {
+                      callback(resultLocations);
+                      console.log(teruggevenLatLng);
+              			} else {
+              				callback(null);
+              			}
+              		}
+              	);
+              }
+              function coordinatenTeruggevenStartPoint(str) {
+              	var coordinatenLatLng = document.getElementById("coordinatenLatLng");
+              	coordinatenLatLng.innerHTML = "";
+              	coordinatenLatLng.innerHTML = coordinatenLatLng.innerHTML + "<br />" + str;
+              }
+        }
 
         function locatieEndPointOpvragen() {
             	// Locatie endPoint opvragen
             	document.getElementById("routesKnop").onclick = function() {
             		var endPoint = document.getElementById("endPoint").value;
             		console.log("Gevonden locaties voor " + endPoint);
-            		addressToLocation(endPoint, searchLocations);
+            		addressToLocationEndPoint(endPoint, searchLocationsEndPoint);
             	}
-              function searchLocations(locations) {
+              function searchLocationsEndPoint(locations) {
               	if(locations && locations.length) {
               		console.log("Aantal locaties: " + locations.length);
               		var numOfLocations = locations.length;
               		for(var i=0; i<numOfLocations; i++) {
-              			coordinatenTeruggeven("<p>" + locations[i].text + "<br>" + locations[i].location.lat() + ", " + locations[i].location.lng() + "</p>");
+              			coordinatenTeruggevenEndPoint("<p>" + locations[i].text + "<br>" + locations[i].location.lat() + ", " + locations[i].location.lng() + "</p>");
               		}
               	} else {
-              		coordinatenTeruggeven("Geen locatie gevonden");
+              		coordinatenTeruggevenEndPoint("Geen locatie gevonden");
               	}
               }
-              function addressToLocation(endPoint, callback) {
+              function addressToLocationEndPoint(endPoint, callback) {
               	var geocoder = new google.maps.Geocoder();
               	geocoder.geocode(
               		{ address: endPoint},
@@ -158,7 +170,7 @@ window.onload = function() {
 
 
               			if (resultLocations.length > 1) {
-              				coordinatenTeruggeven("<p>Specifieer je zoekwaarde</p>");
+              				coordinatenTeruggevenEndPoint("<p>Specifieer je zoekwaarde</p>");
               			} else if (resultLocations.length === 1) {
                       callback(resultLocations);
                       console.log(teruggevenLatLng);
@@ -168,7 +180,7 @@ window.onload = function() {
               		}
               	);
               }
-              function coordinatenTeruggeven(str) {
+              function coordinatenTeruggevenEndPoint(str) {
               	var coordinatenLatLng = document.getElementById("coordinatenLatLng");
               	coordinatenLatLng.innerHTML = "";
               	coordinatenLatLng.innerHTML = coordinatenLatLng.innerHTML + "<br />" + str;
@@ -177,7 +189,7 @@ window.onload = function() {
 
         var formRoutePlannen = document.getElementById('formRoutePlannen');
         formRoutePlannen.onclick = function() {
-              // locatieStartPointOpvragen();
+              locatieStartPointOpvragen();
               locatieEndPointOpvragen();
         }
 
