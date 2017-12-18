@@ -144,14 +144,23 @@ window.onload = function() {
               				console.log('Adres niet gevonden');
               			}
 
-                    var lat = result.geometry.location.lat();
-                    var lng = result.geometry.location.lng();
+                    var endLat = result.geometry.location.lat();
+                    var endLng = result.geometry.location.lng();
+                    var teruggevenLatLng = [endLat, endLng];
+
+                    document.getElementById('endLat').innerHTML = endLat;
+                    document.getElementById('endLng').innerHTML = endLng;
+
+                    console.log(endLat);
+                    console.log(endLng);
+
+                    // var endPoint = document.getElementById('endPoint').value = [endPoint, endLat, endLng];
+
 
               			if (resultLocations.length > 1) {
               				coordinatenTeruggeven("<p>Specifieer je zoekwaarde</p>");
               			} else if (resultLocations.length === 1) {
                       callback(resultLocations);
-                      var teruggevenLatLng = "Coördinaten: " + lat + ", " + lng;
                       console.log(teruggevenLatLng);
               			} else {
               				callback(null);
