@@ -166,7 +166,6 @@ app.post("/routePlannenResultaat", function(req, res) {
 
             request('https://www.delijn.be/rise-api-core/reisadvies/routes/' + startPoint + '/' + endPoint + '/' + startX + '/' + startY + '/' + endX + '/' + endY + '/'+ date + '/' + time + '/' + arrivalDeparture + '/' + byBus + '/' + byTram + '/' + byMetro + '/' + byTrain + '/' + byBelbus + '/nl' , function(error,response, data)  {
 
-              // request('https://www.delijn.be/rise-api-core/reisadvies/routes/Sint-Niklaas/Elversele,Temse/134103/206073/133774/200500/'+ date + '/' + time + '/' + arrivalDeparture + '/' + byBus + '/' + byTram + '/' + byMetro + '/' + byTrain + '/' + byBelbus + '/nl' , function(error,response, data)  {
 
                   var body = JSON.parse(data);
 
