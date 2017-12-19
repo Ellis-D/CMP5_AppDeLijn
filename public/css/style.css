@@ -29,8 +29,8 @@ header {
 
 h1 {
   font-size: 1.5em;
-  font-family: 'PT Sans', sans-serif;
-  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   color: #202020;
   text-align: left;
   margin: 4%;
@@ -42,7 +42,7 @@ h2 {
   font-weight: 500;
   color: #202020;
   text-align: left;
-  margin: 4%;
+  margin: 6% 4% 2% 4%;
 }
 
 p {
@@ -51,7 +51,8 @@ p {
   font-weight: 200;
   color: #202020;
   text-align: left;
-  margin: 4%;
+  margin: 0% 4%;
+  line-height: 1.5em;
 }
 
 a, input, select, label, option, button, ul, li {
@@ -180,7 +181,7 @@ input[type=checkbox]:checked + label {
 	top: 0px;
 }
 .checkboxMetro label, .checkboxMetro input {
-  background-image: url("/img/tram.png");
+  background-image: url("/img/metro.png");
 	position: absolute;
   left: 120px;
 	top: 0px;
@@ -192,7 +193,7 @@ input[type=checkbox]:checked + label {
 	top: 0px;
 }
 .checkboxBelbus label, .checkboxBelbus input {
-  background-image: url("/img/bus.png");
+  background-image: url("/img/belbus.png");
 	position: absolute;
   left: 240px;
 	top: 0px;

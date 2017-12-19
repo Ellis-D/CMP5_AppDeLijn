@@ -206,7 +206,7 @@ app.post("/verkooppuntZoekenResultaat", function(req, res) {
       }
     }
     res.render("verkooppuntZoekenResultaat", {
-      content: '<h3>' + gemeenteVerkooppunt + '</h3><p> Verkooppunt: ' + naamVerkooppunt + '</p><p> Adres: ' + adresVerkooppunt + '</p>'
+      content: '<h2>Verkooppunten in ' + gemeenteVerkooppunt + '</h2><p>' + naamVerkooppunt + '</p><p>' + adresVerkooppunt + '</p>'
     });
   });
 });
