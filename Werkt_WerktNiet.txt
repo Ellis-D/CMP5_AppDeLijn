@@ -27,7 +27,7 @@ registreren
 
 
 routePlannen
-      Werkt in de console maar nog niet in de browser, ben bezig met het koppelen aan de API's.
+      Werkt in de console maar nog niet in de browser.
 
       Probleem: Er kan slechts 1 adres omgezet en teruggegeven worden. Enkel het laatste adres in de rij.
 
@@ -37,7 +37,7 @@ routePlannen
 
 
 routePlannenResultaat
-      Werkt in de console maar nog niet in de browser, ben bezig met het koppelen aan de API's.
+      Werkt in de console maar nog niet in de browser.
 
       Probleem: Er kan slechts 1 adres omgezet en teruggegeven worden. Enkel het laatste adres in de rij.
 
