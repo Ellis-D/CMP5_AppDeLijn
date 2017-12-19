@@ -25,55 +25,10 @@ app.get("/", function(req, res) {
 });
 
 app.get("/halteZoeken", function(req, res) {
-  var haltesInDeBuurt;
-
-  var lat = req.body.lat;
-  var lng = req.body.lng;
-  var coorX = 0;
-  var coorY = 0;
-  var radius = 300;
-  // omrekenen
-  request('https://www.delijn.be/rise-api-core/coordinaten/convert/' + lat + '/' + lng, function (error, response, body) {
-      if (body === '') {
-            response = undefined;
-      } else {
-            // Attempt the parse. If it fails, a parse error should be delivered to the user.
-            response = body.replace(XSSI_PREFIX, '');
-            try {
-                  response = JSON.parse(body);
-            }
-            catch (error) {
-                  // Even though the response status was 2xx, this is still an error.
-                  ok = false;
-                  // The parse error contains the text of the body that failed to parse.
-                  response = ({ error: error, text: body });
-            }
-      }
-
-      console.log(response);
-
-      //console.log(response.xCoordinaat);
-      coorX = body.xCoordinaat;
-      coorY = body.yCoordinaat;
-
-      console.log("x:"+coorX, "y:"+coorY);
-
-
-      request('https://www.delijn.be/rise-api-core/haltes/indebuurt/' + coorX + '/' + coorY + '/' + radius, function (error, response, body) {
-            // console.log('Status:', response.statusCode);
-            // console.log('Headers:', JSON.stringify(response.headers));
-            //console.log('Response:', body);
-            halteInDeBuurt = body;
-
-            //console.log(halteInDeBuurt);
-            res.render("halteZoeken", {
-                  content: body
-            });
-       });
-  });
+  res.render("halteZoeken");
 });
 app.post("/halteZoekenResultaat", function(req, res) {
-  var inDeBuurt;
+  var halteInDeBuurt;
 
   var lng = req.body.lng;
   var lat = req.body.lat;
@@ -82,27 +37,22 @@ app.post("/halteZoekenResultaat", function(req, res) {
   var radius = 300;
 
   console.log("lng:"+ lng);
-  console.log("lat:"+lat);
+  console.log("lat:"+ lat);
   // omrekenen
   request('https://www.delijn.be/rise-api-core/coordinaten/convert/' + lat + '/' + lng, function (error, response, body) {
-
        var body = JSON.parse(body);
        coorX = body.xCoordinaat;
        coorY = body.yCoordinaat;
 
-       console.log("2: x:", coorX, "y:", coorY);
-
+       console.log("x:", coorX, "y:", coorY);
 
        request('https://www.delijn.be/rise-api-core/haltes/indebuurt/' + coorX + '/' + coorY + '/' + radius, function (error, response, body) {
-            // console.log('Status:', response.statusCode);
-            // console.log('Headers:', JSON.stringify(response.headers));
-            //console.log('Response:', body);
-            inDeBuurt = body;
+            halteInDeBuurt = body;
 
-            console.log(inDeBuurt);
+            console.log(halteInDeBuurt);
 
             res.render('halteZoekenResultaat', {
-                 content: inDeBuurt
+                 content: halteInDeBuurt
             });
        });
   });
@@ -131,7 +81,7 @@ app.post("/routePlannenResultaat", function(req, res) {
       var date = req.body.date.split("-").reverse().join("-");
       var time = req.body.time;
 
-      console.log("1:", date);
+      console.log(date);
 
       var arrivalDeparture = req.body.arrivalDeparture;
 
@@ -141,32 +91,30 @@ app.post("/routePlannenResultaat", function(req, res) {
       var byTrain = req.body.byTrain;
       var byBelbus = req.body.byBelbus;
 
-      console.log("2:", startPoint, endPoint, startX, startY, endX, endY, date, time, arrivalDeparture, byBus, byTram, byMetro, byTrain, byBelbus);
+      console.log(startPoint, endPoint, startX, startY, endX, endY, date, time, arrivalDeparture, byBus, byTram, byMetro, byTrain, byBelbus);
 
       request('https://www.delijn.be/rise-api-core/coordinaten/convert/' + endLat + '/' + endLng, function (error, response, body) {
            var response = JSON.parse(body);
-           console.log("3:", response);
+           console.log(response);
 
            endX = response.xCoordinaat;
            endY = response.yCoordinaat;
 
-           console.log("4:", endX, endY);
-           console.log("h:", startPoint, endPoint, startX, startY, endX, endY, date, time, arrivalDeparture, byBus, byTram, byMetro, byTrain, byBelbus);
+           console.log(endX, endY);
+           console.log(startPoint, endPoint, startX, startY, endX, endY, date, time, arrivalDeparture, byBus, byTram, byMetro, byTrain, byBelbus);
       });
 
       request('https://www.delijn.be/rise-api-core/coordinaten/convert/' + startLat + '/' + startLng, function (error, response, body) {
            var response = JSON.parse(body);
-           console.log("i:", response);
+           console.log(response);
 
            startX = response.xCoordinaat;
            startY = response.yCoordinaat;
 
-           console.log("e:", startX, startY);
-           console.log("j:", startPoint, endPoint, startX, startY, endX, endY, date, time, arrivalDeparture, byBus, byTram, byMetro, byTrain, byBelbus);
+           console.log(startX, startY);
+           console.log(startPoint, endPoint, startX, startY, endX, endY, date, time, arrivalDeparture, byBus, byTram, byMetro, byTrain, byBelbus);
 
-            // request('https://www.delijn.be/rise-api-core/reisadvies/routes/' + startPoint + '/' + endPoint + '/' + startX + '/' + startY + '/' + endX + '/' + endY + '/'+ date + '/' + time + '/' + arrivalDeparture + '/' + byBus + '/' + byTram + '/' + byMetro + '/' + byTrain + '/' + byBelbus + '/nl' , function(error,response, body)  {
-
-              request('https://www.delijn.be/rise-api-core/reisadvies/routes/Sint-Niklaas/Elversele,Temse/134103/206073/133774/200500/'+ date + '/' + time + '/' + arrivalDeparture + '/' + byBus + '/' + byTram + '/' + byMetro + '/' + byTrain + '/' + byBelbus + '/nl' , function(error,response, data)  {
+            request('https://www.delijn.be/rise-api-core/reisadvies/routes/' + startPoint + '/' + endPoint + '/' + startX + '/' + startY + '/' + endX + '/' + endY + '/'+ date + '/' + time + '/' + arrivalDeparture + '/' + byBus + '/' + byTram + '/' + byMetro + '/' + byTrain + '/' + byBelbus + '/nl' , function(error,response, data)  {
 
                   var body = JSON.parse(data);
 
@@ -178,14 +126,12 @@ app.post("/routePlannenResultaat", function(req, res) {
                         var vertrekTijd = body.reiswegen[j].startTime;
                         var aankomstTijd = body.reiswegen[j].endTime;
                         gevondenRoute =gevondenRoute+ '<h2>Routes voor <br>' + startPoint + ' - ' + endPoint + ' <br>op ' + date + '</h2><p>Vertrekuur: ' + vertrekTijd + '</p><p>Aankomstuur: ' + aankomstTijd + '</p><p>Reistijd: ' + reisTijd + '</p>';
-                        console.log("5:", reisTijd+vertrekTijd+aankomstTijd);
+                        console.log(reisTijd+vertrekTijd+aankomstTijd);
                   };
 
-                  // var gevondenRoute = body;
+                  console.log(reisTijd, vertrekTijd, aankomstTijd);
+                  console.log(gevondenRoute);
 
-                  console.log("6:", body);
-                  console.log("7:", reisTijd, vertrekTijd, aankomstTijd);
-                  console.log("8:"+gevondenRoute);
                   res.render("routePlannenResultaat", {
                     content: gevondenRoute
                   });
@@ -211,16 +157,16 @@ app.post("/verkooppuntZoekenResultaat", function(req, res) {
       '<p> Er zijn geen verkooppunten gevonden in de gemeente ' + stad + '</p>';
     } else {
       '<h2> Verkooppunten in ' + stad + '</h2>';
-      var cont="";
+      var content="";
       for (var i = 0; i < body.length; i++) {
           var gemeenteVerkooppunt = body[i].gemeente;
           var naamVerkooppunt = body[i].naam;
           var adresVerkooppunt = body[i].adresString;
-          cont=cont+'<h2>Verkooppunten in ' + gemeenteVerkooppunt + '</h2><p>' + naamVerkooppunt + '</p><p>' + adresVerkooppunt + '</p>';
+          content=content+'<h2>Verkooppunten in ' + gemeenteVerkooppunt + '</h2><p>' + naamVerkooppunt + '</p><p>' + adresVerkooppunt + '</p>';
       }
     }
     res.render("verkooppuntZoekenResultaat", {
-      content:cont
+      content:content
     });
   });
 });
