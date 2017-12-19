@@ -33,6 +33,9 @@ window.onload = function() {
              document.getElementById('lng').value = lng;
         });
   }
+  if (window.location.href === "http://localhost:5000/halteZoekenResultaat") {
+
+  }
   if (window.location.href === "http://localhost:5000/index") {
 
   }
