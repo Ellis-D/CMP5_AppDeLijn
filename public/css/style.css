@@ -199,6 +199,14 @@ input[type=checkbox]:checked + label {
 	top: 0px;
 }
 
+#startLat, #startLng, #endLat, #endLng {
+  visibility: hidden;
+}
+.gevondenRouteClass, .gevondenVerkooppuntenClass {
+  padding: 5% 0%;
+  border-bottom: solid black 1px;
+}
+
 /* input.fotoCheckbox {
   clip: rect(0,0,50,50);
   border: black solid 10px;

@@ -43,15 +43,6 @@ window.onload = function() {
 
   }
   if (window.location.href === "http://localhost:5000/routePlannen") {
-
-        // Werkt ineens niet meer!!!
-        function datumEnTijdInvullen() {
-              var vandaag = new Date();
-              var nu = vandaag.getUTCHours() + ":" + vandaag.getUTCMinutes()
-              document.getElementById('routeplannenDatum').valueAsDate = vandaag;
-              document.getElementById('routeplannenTijd').value = nu;
-        }
-
         function locatieOpvragen() {
             	document.getElementById("routesKnop").onclick = function() {
             		var startPoint = document.getElementById("startPoint").value;

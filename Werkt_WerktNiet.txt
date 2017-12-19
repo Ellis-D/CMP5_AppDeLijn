@@ -1,11 +1,11 @@
 aanmelden
-      Werkt maar is niet volgens de regels van de kunst. Dit werkt voor elke gebruikersnaam, en dus niet enkel voor bestaande gebruikers.
+Werkt!
 
-      Goed genoeg, maar zou leuk zijn als het ook echt werkte.
+Probleem: Is niet volgens de regels van de kunst: Dit werkt voor elke gebruikersnaam, en dus niet enkel voor bestaande gebruikers.
 
 
 index
-      Werkt perfect!!!
+      Werkt!
 
 
 halteZoeken
@@ -17,42 +17,30 @@ halteZoekenResultaat
 
 
 registreren
-      Werkt maar is niet volgens de regels van de kunst. Dit werkt voor elke gebruikersnaam, en dus niet enkel voor bestaande gebruikers.
+      Werkt!
 
-      Goed genoeg, maar zou leuk zijn als het ook echt werkte.
+      Probleem: Is niet volgens de regels van de kunst: Dit werkt voor elke gebruikersnaam, en dus niet enkel voor bestaande gebruikers.
 
 
 routePlannen
-      Werkt in de console maar nog niet in de browser.
-
-      Probleem: Er kan slechts 1 adres omgezet en teruggegeven worden. Enkel het laatste adres in de rij.
-
-      Probleem: Automatische uurinvulling werkt niet (zie file voor extra info).
+      Werkt!
 
       Probleem: teruggeven 'on' en 'off' gebeurt niet consequent. Soms wordt 'off' teruggegeven wanneer het vervoersmiddel wel aangevinkt is. Anderzijds wordt er 'undefined' teruggegeven als het niet aangevinkt is.
-
-      Probleem: 'Unexpected end of JSON input' -> Lat en Lng kunnen niet omgezet worden in X en Y (vermoedelijk door een probleem met de geïnstalleerde modules)
 
 
 routePlannenResultaat
-      Werkt in de console maar nog niet in de browser.
-
-      Probleem: Er kan slechts 1 adres omgezet en teruggegeven worden. Enkel het laatste adres in de rij.
-
-      Probleem: Automatische uurinvulling werkt niet (zie file voor extra info).
+      Werkt!
 
       Probleem: teruggeven 'on' en 'off' gebeurt niet consequent. Soms wordt 'off' teruggegeven wanneer het vervoersmiddel wel aangevinkt is. Anderzijds wordt er 'undefined' teruggegeven als het niet aangevinkt is.
 
-      Probleem: 'Unexpected end of JSON input' -> Lat en Lng kunnen niet omgezet worden in X en Y (vermoedelijk door een probleem met de geïnstalleerde modules)
-
 
 startscherm
-      Werkt perfect!!!
+      Werkt!
 
 
 verkooppuntZoeken
-      Werkt! -> nog stylen!
+      Werkt!
 
 
 verkooppuntZoekenResultaat
-      Werkt! -> nog stylen!
+      Werkt!

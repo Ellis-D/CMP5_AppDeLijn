@@ -6,7 +6,6 @@
 			<input type="text" name="startPoint" value="" id="startPoint" placeholder="Van" class="invullen" required autofocus>
 			<input type="text" name="endPoint" value="" id="endPoint" placeholder="Naar" class="invullen" required>
 			<input type="date" name="date" value="" id="routeplannenDatum" required>
-	<!-- Automatische uurinvulling werkt niet van xx:00 tot xx:09. Fout in de uurnotatie. Soms wordt ook verkeerde uur weergegeven. -->
 			<input type="time" name="time" value="" id="routeplannenTijd" required>
 			<select name="arrivalDeparture">
 		    		<option value="1">Vertrekken</option>
@@ -35,13 +34,14 @@
 						</div>
 			</div>
 
+			<input type="submit" name="zoeken" value="Routes zoeken" id="routesKnop" class="knop">
+
 			<input type="text" name="startLat" value="" id="startLat" required>
 			<input type="text" name="startLng" value="" id="startLng" required>
 
 			<input type="text" name="endLat" value="" id="endLat" required>
 			<input type="text" name="endLng" value="" id="endLng" required>
-			
-			<input type="submit" name="zoeken" value="Routes zoeken" id="routesKnop" class="knop">
+
 
 
 
