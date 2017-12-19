@@ -75,15 +75,18 @@ app.get("/halteZoeken", function(req, res) {
 app.post("/halteZoekenResultaat", function(req, res) {
   var inDeBuurt;
 
-  var lng = req.query.lng;
-  var lat = req.query.lat;
+  var lng = req.body.lng;
+  var lat = req.body.lat;
   var coorX = 0;
   var coorY = 0;
   var radius = 300;
+
+  console.log("lng:"+ lng);
+  console.log("lat:"+lat);
   // omrekenen
   request('https://www.delijn.be/rise-api-core/coordinaten/convert/' + lat + '/' + lng, function (error, response, body) {
+
        var body = JSON.parse(body);
-       console.log("1:", body);
        coorX = body.xCoordinaat;
        coorY = body.yCoordinaat;
 
@@ -198,15 +201,17 @@ app.post("/verkooppuntZoekenResultaat", function(req, res) {
     if (stad === null) {
       '<p> Er zijn geen verkooppunten gevonden in de gemeente ' + stad + '</p>';
     } else {
-      '<h2> Verkooppunten in ' + stad + '</h2>'
+      '<h2> Verkooppunten in ' + stad + '</h2>';
+      var cont="";
       for (var i = 0; i < body.length; i++) {
           var gemeenteVerkooppunt = body[i].gemeente;
           var naamVerkooppunt = body[i].naam;
           var adresVerkooppunt = body[i].adresString;
+          cont=cont+'<h2>Verkooppunten in ' + gemeenteVerkooppunt + '</h2><p>' + naamVerkooppunt + '</p><p>' + adresVerkooppunt + '</p>';
       }
     }
     res.render("verkooppuntZoekenResultaat", {
-      content: '<h2>Verkooppunten in ' + gemeenteVerkooppunt + '</h2><p>' + naamVerkooppunt + '</p><p>' + adresVerkooppunt + '</p>'
+      content:cont
     });
   });
 });

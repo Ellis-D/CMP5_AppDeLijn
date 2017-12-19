@@ -35,6 +35,8 @@ routePlannen
 
       Probleem: teruggeven 'on' en 'off' gebeurt niet consequent. Soms wordt 'off' teruggegeven wanneer het vervoersmiddel wel aangevinkt is. Anderzijds wordt er 'undefined' teruggegeven als het niet aangevinkt is.
 
+      Probleem: 'Unexpected end of JSON input' -> Lat en Lng kunnen niet omgezet worden in X en Y (vermoedelijk door een probleem met de geïnstalleerde modules)
+
 
 routePlannenResultaat
       Werkt in de console maar nog niet in de browser.
@@ -45,18 +47,16 @@ routePlannenResultaat
 
       Probleem: teruggeven 'on' en 'off' gebeurt niet consequent. Soms wordt 'off' teruggegeven wanneer het vervoersmiddel wel aangevinkt is. Anderzijds wordt er 'undefined' teruggegeven als het niet aangevinkt is.
 
+      Probleem: 'Unexpected end of JSON input' -> Lat en Lng kunnen niet omgezet worden in X en Y (vermoedelijk door een probleem met de geïnstalleerde modules)
+
 
 startscherm
       Werkt perfect!!!
 
 
 verkooppuntZoeken
-      Werkt bijna.
-
-      Probleem: Er wordt telkens maar 1 verkooppunt getoond, dit is vermoedelijk een probleem met de loop.
+      Werkt!
 
 
 verkooppuntZoekenResultaat
-      Werkt bijna.
-
-      Probleem: Er wordt telkens maar 1 verkooppunt getoond, dit is vermoedelijk een probleem met de loop.
+      Werkt!
