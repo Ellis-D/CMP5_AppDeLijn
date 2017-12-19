@@ -9,15 +9,11 @@ index
 
 
 halteZoeken
-      Werkt nog niet. Er wordt wel al een locatie opgehaald, maar deze kan nog niet omgezet worden in X en Y coordinaten.
-
-      Probleem: 'Unexpected end of JSON input' -> Lat en Lng kunnen niet omgezet worden in X en Y (vermoedelijk door een probleem met de geïnstalleerde modules)
+      Werkt! -> nog stylen!
 
 
 halteZoekenResultaat
-      Werkt nog niet. Er wordt wel al een locatie opgehaald, maar deze kan nog niet omgezet worden in X en Y coordinaten.
-
-      Probleem: 'Unexpected end of JSON input' -> Lat en Lng kunnen niet omgezet worden in X en Y (vermoedelijk door een probleem met de geïnstalleerde modules)
+      Werkt! -> nog stylen
 
 
 registreren
@@ -55,8 +51,8 @@ startscherm
 
 
 verkooppuntZoeken
-      Werkt!
+      Werkt! -> nog stylen!
 
 
 verkooppuntZoekenResultaat
-      Werkt!
+      Werkt! -> nog stylen!

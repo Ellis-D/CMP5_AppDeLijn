@@ -59,6 +59,7 @@ window.onload = function() {
             		// console.log("Gevonden locaties voor " + startPoint);
             		// console.log("Gevonden locaties voor " + endPoint);
             		addressToLocation(startPoint, endPoint, searchLocations);
+
             	}
               function searchLocations(locations) {
               	if(locations && locations.length) {
@@ -100,8 +101,8 @@ window.onload = function() {
                     var startLng = resultStartPoint.geometry.location.lng();
                     var teruggevenLatLngStartPoint = [startLat, startLng];
 
-                    document.getElementById('startLat').innerHTML = startLat;
-                    document.getElementById('startLng').innerHTML = startLng;
+                    document.getElementById('startLat').value = startLat;
+                    document.getElementById('startLng').value = startLng;
 
                     // console.log(startLat);
                     // console.log(startLng);
@@ -140,8 +141,8 @@ window.onload = function() {
                     var endLng = resultEndPoint.geometry.location.lng();
                     var teruggevenLatLngEndPoint = [endLat, endLng];
 
-                    document.getElementById('endLat').innerHTML = endLat;
-                    document.getElementById('endLng').innerHTML = endLng;
+                    document.getElementById('endLat').value = endLat;
+                    document.getElementById('endLng').value = endLng;
 
                     // console.log(endLat);
                     // console.log(endLng);
