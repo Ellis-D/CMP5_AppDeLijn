@@ -4,16 +4,15 @@
        var halte = <%- content %>;
        for (var i = 0; i < halte.length; i++) {
           if (halte[i].lijnen.length != 0) {
-               var div = document.createElement("DIV");
-               var h2 = document.createElement("H2");
+               var div = document.createElement("div");
+               div.setAttribute("class", "gevondenHaltesClass");
+               var h2 = document.createElement("h2");
                var h2T = document.createTextNode(halte[i].omschrijvingLang);
-               var ul = document.createElement("UL");
-               var a = document.createElement("A");
+               var ul = document.createElement("ul");
                for (var j = 0; j < halte[i].lijnen.length; j++) {
-                    var li = document.createElement("LI");
-                    var pLijnNr = document.createElement("P");
+                    var pLijnNr = document.createElement("li");
                     pLijnNr.setAttribute("class", "lijnNummer");
-                    var pLijnBestem = document.createElement("P");
+                    var pLijnBestem = document.createElement("li");
                     var pLijnNrT = document.createTextNode(halte[i].lijnen[j].lijnNummer);
                     var pLijnBestemT = document.createTextNode(halte[i].lijnen[j].bestemming);
 
@@ -24,19 +23,17 @@
                     var halteNr = halte[i].halteNummer;
                     pLijnNr.appendChild(pLijnNrT);
                     pLijnBestem.appendChild(pLijnBestemT);
-                    li.appendChild(pLijnNr);
-                    li.appendChild(pLijnBestem);
-                    ul.appendChild(li);
+                    ul.appendChild(pLijnNr);
+                    ul.appendChild(pLijnBestem);
 
                     pLijnNr.style.background = backgroundColor;
                     pLijnNr.style.border = "solid 1px" + backgroundColorBorder;
                     pLijnNr.style.color = color;
                }
+               div.appendChild(h2);
                h2.appendChild(h2T);
-               a.appendChild(h2);
-               a.appendChild(ul);
-               document.body.appendChild(a);
-               a.setAttribute("href", "/halte?nr=" + halteNr);
+               div.appendChild(ul);
+               document.body.appendChild(div);
           }
        }
 </script>
