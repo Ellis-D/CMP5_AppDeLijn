@@ -1,7 +1,7 @@
 aanmelden
-Werkt!
+      Werkt!
 
-Probleem: Is niet volgens de regels van de kunst: Dit werkt voor elke gebruikersnaam, en dus niet enkel voor bestaande gebruikers.
+      Probleem: Is niet volgens de regels van de kunst: Dit werkt voor elke gebruikersnaam, en dus niet enkel voor bestaande gebruikers.
 
 
 index
